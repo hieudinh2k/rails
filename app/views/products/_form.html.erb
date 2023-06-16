@@ -1,0 +1,8 @@
+<%= form_for @product do |f|   %>
+ name <%= f.text_field :name , :autocomplete => :off %><br />
+ price <%= f.text_field :price , :autocomplete => :off %><br />
+ description <%= f.text_field :description, :autocomplete => :off  %><br />
+ quantity <%= f.text_field :quantity , :autocomplete => :off %><br />
+ category <%= f.collection_select :category_id, Category.all, :id, :name %><br />
+  <%= f.submit class: "btn-create" %>
+<% end %>

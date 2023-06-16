@@ -1,0 +1,5 @@
+<%= form_for @category do |f|   %>
+ name <%= f.text_field :name , :autocomplete => :off %><br />
+ description <%= f.text_field :description, :autocomplete => :off  %><br />
+  <%= f.submit class: "btn-create" %>
+<% end %>

@@ -1,0 +1,35 @@
+<p style="text-align:center;font-size:40px">Danh sách sản phẩm</p>
+<div class="table">
+
+<table class="table">
+<thead>
+  <tr>
+    <th >Tên</th>
+    <th >Giá</th>
+    <th >Số lượng</th>
+    <th >Mô tả</th>
+    <th >categories</th>
+    <th >Chỉnh sửa</th>
+  </tr>
+</thead>
+<tbody>  
+  <% @products.each do |a| %>
+    <tr>
+    <td ><%= a.name %></td>
+    <td ><%= a.price %></td>
+    <td ><%= a.quantity %></td>
+    <td ><%= a.description %></td>
+    <td ><%= a.category_id %></td>
+</td>
+  <td >
+      <%= link_to "chỉnh sửa", edit_product_path(a) %>
+      <%= button_to 'Xóa', product_path(a), method: :delete %>
+    </td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+<p style="text-align:right">Tổng: <%= @products.length %></p>
+
+<%= link_to "thêm mới", new_product_path, class: "btn-create" %>
+</div>

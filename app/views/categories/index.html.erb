@@ -1,0 +1,28 @@
+<p style="text-align:center;font-size:40px">Danh sách sản phẩm</p>
+<div class="table">
+
+<table class="table">
+<thead>
+  <tr>
+    <th >Tên</th>
+    <th >Mô tả</th>
+    <th >Mô tả</th>
+  </tr>
+</thead>
+<tbody>  
+  <% @categories.each do |a| %>
+    <tr>
+    <td ><%= link_to "#{a.name}" , category_path(a) %></td>
+    <td ><%= a.description %></td>
+  <td >
+      <%= link_to "chỉnh sửa", edit_category_path(a) %>
+      <%= link_to 'Xóa', category_path(a), data: { turbo_method: :delete }  %>
+    </td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+<p style="text-align:right">Tổng: <%= @categories.length %></p>
+
+<%= link_to "thêm mới", new_category_path, class: "btn-create" %>
+</div>
